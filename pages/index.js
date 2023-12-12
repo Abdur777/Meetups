@@ -8,7 +8,7 @@ const password = process.env.PASS;
 function HomePage(props) {
   return <Fragment>
       <Head>
-        <title>React Meetups</title>
+        <title>Meetups</title>
         <meta
           name='description'
           content='Browse a huge list of highly active React meetups!'
