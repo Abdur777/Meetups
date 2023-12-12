@@ -2,7 +2,8 @@ import MeetupList from '../components/meetups/MeetupList';
 import { MongoClient } from 'mongodb';
 import { Fragment } from 'react';
 import Head from 'next/head';
-
+const username = process.env.ID;
+const password = process.env.PASS;
 
 function HomePage(props) {
   return <Fragment>
@@ -18,9 +19,9 @@ function HomePage(props) {
 }
 
 export async function getStaticProps() {
-  
-  const client = await MongoClient.connect(
-    'mongodb+srv://abdur:abdur123@cluster0.mlwl1tu.mongodb.net/?retryWrites=true&w=majority'
+
+const client = await MongoClient.connect(
+  `mongodb+srv://${username}:${password}@cluster0.mlwl1tu.mongodb.net/?retryWrites=true&w=majority`
   );
   const db = client.db();
 

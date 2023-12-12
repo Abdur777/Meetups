@@ -3,6 +3,8 @@ import { Fragment } from 'react';
 import Head from 'next/head';
 
 import MeetupDetail from '../../components/meetups/MeetupDetail';
+const username = process.env.ID;
+const password = process.env.PASS;
 
 function MeetupDetails(props) {
   return (
@@ -23,7 +25,7 @@ function MeetupDetails(props) {
 
 export async function getStaticPaths() {
   const client = await MongoClient.connect(
-    'mongodb+srv://abdur:abdur123@cluster0.mlwl1tu.mongodb.net/?retryWrites=true&w=majority'
+    `mongodb+srv://${username}:${password}@cluster0.mlwl1tu.mongodb.net/?retryWrites=true&w=majority`
   );
   const db = client.db();
 
@@ -47,7 +49,7 @@ export async function getStaticProps(context) {
   const meetupId = context.params.meetupId;
 
   const client = await MongoClient.connect(
-    'mongodb+srv://abdur:abdur123@cluster0.mlwl1tu.mongodb.net/?retryWrites=true&w=majority'
+    `mongodb+srv://${username}:${password}@cluster0.mlwl1tu.mongodb.net/?retryWrites=true&w=majority`
   );
   const db = client.db();
 
